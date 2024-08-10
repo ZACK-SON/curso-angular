@@ -1,0 +1,92 @@
+<h2>Control Flow - Dentro do HTML</h2>
+<hr>
+<h3>IF</h3>
+
+@if (isTrue) {
+    <p>VERDADEIRO: A variável isTrue possui valor true</p>
+}@else{
+    <p>FALSO: A variável isTrue possui valor false</p>
+}
+<hr>
+
+
+<h3>FOR com IF Assíncrono</h3>
+
+@if (loadingData$ |async; as data) {
+    <ul>
+        @for (item of data; track item) {
+            <li> {{item}}  - For com If Assíncrono</li>
+        }
+    </ul>
+}@else{
+    <p>Carregando...</p>
+}
+
+
+<h3>FOR Assíncrono</h3>
+
+<ul>
+    @for (item of loadingData$ | async; track item) {
+        <li> {{item}}  - For Assíncrono </li>
+    }
+</ul>
+
+<h3>FOR e Seus Valores</h3>
+
+    @for (
+        item of itens; track item.name;
+        let i = $index;
+        let c = $count;
+        let f = $first;
+        let l = $last;
+        let e = $even;
+        let o = $odd;
+
+    ) {
+        <p> Nome do Item: {{item.name}} </p>
+        <p>posição/index - {{i}}</p>
+        <p>Quantidade de elementos/count - {{c}}</p>
+        <p>Primeiro item?/first - {{f}}</p>
+        <p>Último item?/last - {{l}}</p>
+        <p>Par?/even - {{e}}</p>
+        <p>Impar?/odd - {{o}}</p>
+    }
+
+    <input #name type="text">
+    <button (click)="addNewName(name.value)">Add Name</button>
+
+<hr>
+
+<h3>FOR e Empty</h3>
+
+<ul>
+    @for (item of arrayEmpty; track item.name) {
+        <li> {{item.name}}  - A variável "ArrayEmpty" não está mais  vazia </li>
+    }@empty {
+        <li> A variável "ArrayEmpty" não contém valores </li>
+    }
+</ul>
+
+<input #nameArrayEmpty type="text">
+<button (click)="addNewNameArrayEmpty(nameArrayEmpty.value)">Add Name</button>
+
+<hr>
+
+<h3>IF, FOR e SWITCH CASE</h3>
+
+    @switch (switchCondition) {
+        @case ('A') {
+            <p>Letra A - SWITCH CASE</p>
+        }
+        @case ('B') {
+            <p>Letra B - SWITCH CASE</p>
+        }
+        @case ('C') {
+            <p>Letra C - SWITCH CASE</p>
+        }
+        @default {
+            <p>Não consta - SWITCH CASE</p>
+        }
+    }
+
+<hr>

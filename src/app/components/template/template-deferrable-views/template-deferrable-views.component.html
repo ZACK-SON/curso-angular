@@ -1,0 +1,48 @@
+
+
+
+<!-- 
+on - especifica uma condição de acionador usando um acionador da lista.
+(idle, timer, viewport, interaction, hover, immediate, prefetch).
+    @defer (on idle)
+        é o padrão - Exibe na tela após carregamento e Browser inativo
+    @defer (on timer(1000ms))
+        aguarda o tempo informado para exibir op iten
+    @defer (on viewport)
+        Só carrega(efetua download) quando chega o  scroll do item - Bom para imagens
+    @defer (on interaction(trigger))
+        Só carrega(efetua download) quando interagir no item 
+        É possível colocar gatilhos em outros elementos da página
+    @defer (on hover)
+        Só carrega quando passar o mouse no item
+    @defer (on immediate)
+        é o padrão - Exibe na tela após carregamento, não espera Borwser fica inativo
+    @defer (prefetch on )
+        Faz pré-carregamento do item
+        Exemplo: quando sabe-se que o usuário irá apertar determinado BOTAO.
+
+
+when - especifica uma condição imperativa como uma expressão que retorna
+um booleano. Quando esta expressão se torna verdadeira, o espaço reservado
+é trocado pelo conteúdo carregado lentamente(o que pode ser uma operação
+assíncrona se as dependências precisarem ser buscadas).
+
+Nota: Vários on triggers são sempre condições OR. Da mesma forma , on misturado
+com when também são condições OR.
+
+-->
+
+<h2 >Deferrable Views - Downloads(Chunks)</h2>
+
+<button (click)="isTrue=true">Clique para listar pokemons</button>
+
+@defer (when isTrue ) {
+    <!-- <app-new-component/> -->
+    <app-lista-clientes/>
+} @placeholder (minimum 5s){ <!-- segura o placeholder por mais algum tempo - É possível colocar um SPINNER -->
+    <p #trigger2> Mostrar antes de carregar algo.</p>
+} @loading { <!-- Isso aparece enquanto o chunk está sendo carregado - O download está sendo feito -->
+    <p> Loading...</p>
+} @error {
+    <p> Loading Failed :( </p>
+}

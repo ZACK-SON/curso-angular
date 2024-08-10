@@ -1,0 +1,19 @@
+<h2>Pipes</h2>
+
+<ul>
+    <li>DatePipe: {{ date() | date: 'dd/MM/yyyy'}}</li>
+
+    <li>UpperCasePipe: {{ uppercasePipe() | uppercase}}</li>
+
+    <li>LowerCasePipe: {{ lowercasePipe() | lowercase}}</li>
+
+    <li>jsonPipe: {{ json() | json}}</li>
+
+    <li>asyncPipe: {{ loadingData$ | async}}</li>
+
+    <li>currencyPipe: {{ 200.5 | currency: "BRL"}}</li>
+    <li>decimalPipe: {{ 2000.5564 | number: "1.1-2"}}</li>
+    <li>percentPipe: {{ 0.15558 | percent: "1.0-2"}}</li>
+
+</ul>
+

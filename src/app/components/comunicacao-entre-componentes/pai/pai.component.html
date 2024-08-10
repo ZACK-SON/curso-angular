@@ -1,0 +1,13 @@
+<h2>Componente Pai - Comunicação entre componentes: &#64;input e &#64;output</h2>
+<!-- <app-input inputName="Zackson Wesner Rodriguez - Dados do componente PAI enviado para filho"/> -->
+
+
+<!-- [inputName]  CLASSE InputComponent-->
+<!-- name() é propriedade da CLASSE PaiComponent -->
+<app-input [inputName]="name()"/>
+
+<app-output (outputName)="outputName.set($event)"/>
+
+    <p>
+    Dado recebido do componente filho: {{ outputName() }}
+   </p>

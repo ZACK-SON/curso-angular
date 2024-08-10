@@ -1,0 +1,16 @@
+CSS
+
+.cliente-lista table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.cliente-lista th, .cliente-lista td {
+  border: 1px solid #ddd;
+  padding: 8px;
+}
+
+.cliente-lista th {
+  background-color: #f2f2f2;
+  text-align: left;
+}

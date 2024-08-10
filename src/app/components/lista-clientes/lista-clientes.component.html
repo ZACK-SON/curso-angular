@@ -1,0 +1,31 @@
+<p>Lista de Clientes: </p>
+
+<div class="cliente-lista">
+    <table>
+        <thead>
+        <tr>
+            <th>Número</th>
+            <th>Pokemon</th>
+            <th>Url</th>
+            <!-- <th>Status</th> -->
+        </tr>
+        </thead>
+        <tbody>
+
+            @if(Clientes$ | async; as resultObject){
+                @for (item of resultObject.results; track item) {
+                    <tr>
+                        <td>{{ item.url | slice:-3:-1  }}</td>
+                        <td>{{ item.name }}</td>
+                        <td>{{ item.url}}</td>
+                        <!-- <td>{{ item.email }}</td>
+                        <td>{{ item.status }}</td> -->
+                    </tr>
+                }
+            }
+ 
+
+        </tbody>
+    </table>
+
+</div>

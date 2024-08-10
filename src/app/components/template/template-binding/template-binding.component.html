@@ -1,0 +1,87 @@
+<h2>Template</h2>
+<h3>Text Interpolation</h3>
+<hr>
+
+<p>{{ name }} - {{ age }} : soma de 4 com 5 = {{sum(4,5)}}</p>
+<hr>
+
+<p>soma: {{ 4 + age}}</p>
+<hr>
+
+<p>Idade é maior que 1? {{ age > 1 ? "Sim": "Não"}}</p>
+<hr>
+
+<p>Idade é maior que 1? {{ condition }}</p>
+<hr>
+
+<h2>Property Binding</h2>
+<!--<element [property] = 'Value'></element>-->
+<button [disabled]="isDisabled">Button</button><br>
+<img [src]="srcValue" [title]="name" [alt]="name" width="100" height="70">
+
+<!-- Não funcionou a linha de baixo -->
+<!-- <img src="./Eu.jpg" > -->
+<hr>
+
+<h2>Attribute Binding</h2>
+<!--<element [attr.attribute-you-are-targeting] = 'Value'></element>-->
+<p [attr.title]="name" [attr.aria-label]="name">ZACKSON WESNER RODRIGUEZ</p>
+
+<hr>
+
+<h2>Class and Style Binding</h2>
+<p [class.background-red]="age > 40" [class.background-blue]="age < 40" >
+    {{name}}
+</p>
+
+<p [style.text-decoration]="isTextDecoration">
+    {{age}}
+</p>
+
+<hr>
+
+<h2>Event Binding</h2>
+<!--
+    <element 
+        (TargetEventName) = 'TemplateStatement'
+    ></element>
+-->
+
+<button (click)="ButtonSum()">+</button>
+<button (click)="ButtonSub()">-</button>
+
+<input (keydown.shift.t)="onKeyDown($event)">
+
+<div 
+    style="background: red; width: 200px; height: 200px; margin-top: 10px;" (keydown.shift.t)="onKeyDown($event)"
+    (mousemove)="onMouseEvent($event)"
+></div>
+
+<hr>
+
+<h2>Two-Way Binding</h2>
+<input [(ngModel)]="name"> 
+{{name}}
+<hr>
+
+<h2>Diretivas de atributo</h2>
+
+<div 
+    [ngClass]="{
+    'background-red': age > 41,'background-blue': age < 41
+}"
+
+> 
+    Classes condicionais.
+</div>
+
+<div
+    [ngStyle]="{
+        'color': age > 41 ? 'green' : 'red',
+        'font-size': age > 41 ? '30px' : '20px',
+    }"
+>
+    Estilo dinâmico.
+</div>
+
+<hr>
